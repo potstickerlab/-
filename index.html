@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="zh-Hant">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#39291f">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#39291f"><link rel="manifest" href="manifest.webmanifest"><link rel="icon" type="image/png" sizes="512x512" href="icons/icon-512.png"><link rel="apple-touch-icon" href="icons/apple-touch-icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="鍋淬"><meta name="apple-mobile-web-app-status-bar-style" content="default">
 <title>鍋淬 GUO CUI｜一口金黃，剛好的講究</title>
 <meta name="description" content="鍋淬，以每日現包與金黃香煎，呈現剛剛好的鍋貼美味。探索菜單、冷凍禮盒與門市。">
 <script src="https://cdn.tailwindcss.com"></script>
@@ -118,4 +118,5 @@ document.addEventListener('click',e=>{const add=e.target.closest('[data-add]');i
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(!$('checkoutModal').classList.contains('hidden-force'))closeCheckout();else if(!$('successModal').classList.contains('hidden-force'))closeSuccess();else if(!$('privacyModal').classList.contains('hidden-force'))closePrivacy();else if(!$('cartDrawer').classList.contains('hidden-force'))closeCart()}const active=['checkoutModal','successModal','privacyModal','cartDrawer'].find(id=>!$(id).classList.contains('hidden-force'));if(e.key==='Tab'&&active){const items=[...$(active).querySelectorAll('button:not(:disabled),input:not(:disabled),textarea:not(:disabled),select:not(:disabled),a[href]')].filter(el=>el.getClientRects().length);if(!items.length)return;const first=items[0],last=items[items.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}else if(!items.includes(document.activeElement)){e.preventDefault();first.focus()}}});
 $('year').textContent=new Date().getFullYear();renderMenu();renderCart();renderLocation();if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',icons);else icons();window.addEventListener('load',icons);
 </script>
+<script>if('serviceWorker' in navigator){window.addEventListener('load',()=>{navigator.serviceWorker.register('sw.js').catch(()=>{});});}</script>
 </body></html>
